@@ -1,3 +1,8 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,6 +10,53 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background: #ccc;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr [row-start]);
+  grid-gap: 10px;
+}
+
+.panel {
+  background: #fcfcfc;
+  grid-column: 2 / 6;
+  grid-row: 2 / 8;
+  justify-items: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+.panel > h1 {
+  text-align: center;
+}
+
+.row {
+  display: inline-grid;
+  margin: 5px 0;
+  width: 100%;
+  grid-template-columns: [start] auto [col2] 20% [col3] 15% [col4] 15% [end];
+  background: #ccc;
+  align-items: stretch;
+}
+
+.row > div {
+  padding: 5px;
+  height: auto;
+}
+
+input,
+select {
+  width: 100%;
+  justify-self: center;
+  padding: 3px 5px;
+  min-height: 30px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
 }
 
 code {
